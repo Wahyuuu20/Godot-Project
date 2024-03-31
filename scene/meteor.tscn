@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bq5djiw3kyh0o"]
+
+[ext_resource type="Script" path="res://Scirpt/meteor.gd" id="1_2tlia"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_y3uvc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ya2c4"]
+size = Vector2(10.087, 10.5455)
+
+[node name="Meteor" type="Area2D" groups=["damageableWall"]]
+scale = Vector2(23, 5.5)
+script = ExtResource("1_2tlia")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.737255, 0.552941, 0.32549, 1)
+scale = Vector2(10, 10)
+texture = SubResource("CanvasTexture_y3uvc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3.31713e-07, 2.38419e-07)
+shape = SubResource("RectangleShape2D_ya2c4")

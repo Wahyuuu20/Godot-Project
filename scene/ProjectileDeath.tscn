@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://dxogvkl0d633e"]
+
+[ext_resource type="Script" path="res://Scirpt/ProjectileDeath.gd" id="1_gclu1"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_e4y65"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k1lrb"]
+size = Vector2(2, 16)
+
+[node name="Projectile_death" type="Area2D"]
+script = ExtResource("1_gclu1")
+projectileSpeed = 200.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.5, 15.5)
+texture = SubResource("CanvasTexture_e4y65")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_k1lrb")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(0, 4.17233e-07)
+scale = Vector2(0.1, 0.8)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

@@ -1,0 +1,132 @@
+[gd_scene load_steps=5 format=3 uid="uid://bqdotl2k1qemf"]
+
+[ext_resource type="Script" path="res://Scirpt/Menu/Lobby.gd" id="1_h3nld"]
+[ext_resource type="PackedScene" uid="uid://ccs8lrewsoxfe" path="res://scene/Global_level_Background.tscn" id="2_dqu5v"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_h8in2"]
+font_size = 39
+font_color = Color(0.682353, 0.635294, 0.376471, 0.909804)
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_2h3cg"]
+font_size = 20
+font_color = Color(0.243137, 0.282353, 1, 1)
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Lobby" type="Node2D"]
+script = ExtResource("1_h3nld")
+
+[node name="Global_background" parent="." instance=ExtResource("2_dqu5v")]
+
+[node name="Spawn_Enemy" type="Node2D" parent="."]
+position = Vector2(576, 160)
+
+[node name="Marker2D" type="Marker2D" parent="Spawn_Enemy"]
+
+[node name="Marker2D2" type="Marker2D" parent="Spawn_Enemy"]
+position = Vector2(-64, 0)
+
+[node name="Marker2D3" type="Marker2D" parent="Spawn_Enemy"]
+position = Vector2(64, 0)
+
+[node name="Marker2D4" type="Marker2D" parent="Spawn_Enemy"]
+position = Vector2(0, 64)
+
+[node name="Marker2D5" type="Marker2D" parent="Spawn_Enemy"]
+position = Vector2(0, -64)
+
+[node name="Marker2D6" type="Marker2D" parent="Spawn_Enemy"]
+position = Vector2(-128, 0)
+
+[node name="Marker2D7" type="Marker2D" parent="Spawn_Enemy"]
+position = Vector2(128, 0)
+
+[node name="Marker2D8" type="Marker2D" parent="Spawn_Enemy"]
+position = Vector2(128, 64)
+
+[node name="Marker2D9" type="Marker2D" parent="Spawn_Enemy"]
+position = Vector2(64, 64)
+
+[node name="Marker2D10" type="Marker2D" parent="Spawn_Enemy"]
+position = Vector2(64, -64)
+
+[node name="Marker2D11" type="Marker2D" parent="Spawn_Enemy"]
+position = Vector2(128, -64)
+
+[node name="Marker2D12" type="Marker2D" parent="Spawn_Enemy"]
+position = Vector2(-64, -64)
+
+[node name="Marker2D13" type="Marker2D" parent="Spawn_Enemy"]
+position = Vector2(-128, -64)
+
+[node name="Marker2D14" type="Marker2D" parent="Spawn_Enemy"]
+position = Vector2(-128, 64)
+
+[node name="Marker2D15" type="Marker2D" parent="Spawn_Enemy"]
+position = Vector2(-64, 64)
+
+[node name="Marker2D16" type="Marker2D" parent="Spawn_Enemy"]
+position = Vector2(-200, 0)
+
+[node name="Marker2D17" type="Marker2D" parent="Spawn_Enemy"]
+position = Vector2(192, 0)
+
+[node name="Menu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 488.0
+offset_top = 360.0
+offset_right = 528.0
+offset_bottom = 400.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Menu"]
+
+[node name="TitleHeadline" type="Label" parent="Menu/CanvasLayer"]
+offset_left = 408.0
+offset_top = 280.0
+offset_right = 778.0
+offset_bottom = 344.0
+text = "Space Shooter 2D"
+label_settings = SubResource("LabelSettings_h8in2")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="lower" type="Label" parent="Menu/CanvasLayer"]
+offset_left = 232.0
+offset_top = 256.0
+offset_right = 602.0
+offset_bottom = 320.0
+text = "Dev"
+label_settings = SubResource("LabelSettings_2h3cg")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Start" type="Button" parent="Menu/CanvasLayer"]
+offset_left = 488.0
+offset_top = 360.0
+offset_right = 656.0
+offset_bottom = 400.0
+size_flags_horizontal = 8
+text = "Test"
+metadata/_edit_use_anchors_ = true
+
+[node name="Option" type="Button" parent="Menu/CanvasLayer"]
+offset_left = 488.0
+offset_top = 408.0
+offset_right = 656.0
+offset_bottom = 448.0
+action_mode = 0
+text = "Test"
+
+[node name="Exit" type="Button" parent="Menu/CanvasLayer"]
+offset_left = 528.0
+offset_top = 456.0
+offset_right = 624.0
+offset_bottom = 488.0
+text = "Test"
+
+[connection signal="pressed" from="Menu/CanvasLayer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Menu/CanvasLayer/Option" to="." method="_on_option_pressed"]
+[connection signal="pressed" from="Menu/CanvasLayer/Exit" to="." method="_on_exit_pressed"]

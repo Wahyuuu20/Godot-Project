@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=3 uid="uid://dt0py212vaenk"]
+
+[ext_resource type="Script" path="res://Scirpt/PlayerMovement.gd" id="1_6ki70"]
+[ext_resource type="Texture2D" uid="uid://dg227kirrgiym" path="res://Asset/AssetPlayer/player.png" id="2_e12fb"]
+[ext_resource type="Texture2D" uid="uid://dkade1agdj4k8" path="res://Asset/AssetPlayer/playerLeft.png" id="3_jgdox"]
+[ext_resource type="Texture2D" uid="uid://b207hvnds3iv5" path="res://Asset/AssetPlayer/playerRight.png" id="4_dfyu7"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xbaiy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_e12fb")
+}],
+"loop": true,
+"name": &"Atas",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_dfyu7")
+}],
+"loop": true,
+"name": &"Kanan",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_jgdox")
+}],
+"loop": true,
+"name": &"Kiri",
+"speed": 5.0
+}]
+
+[node name="Player" type="CharacterBody2D" groups=["HitPlayer", "Player"]]
+script = ExtResource("1_6ki70")
+movementSpeed = 5
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_xbaiy")
+animation = &"Kiri"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(-5, -23, 5, -23, 7, -8, 22, 1, 28, -4, 30, -3, 28, 15, 26, 15, 25, 13, 9, 17, 5, 22, 4, 23, -5, 23, -9, 17, -24, 13, -25, 15, -28, 15, -30, -4, -27, -4, -24, -1, -22, 0, -8, -7)
+
+[node name="Gun_Player" type="Node2D" parent="."]
+
+[node name="Gun_1" type="Marker2D" parent="Gun_Player"]
+position = Vector2(0, -23)
+
+[node name="Gun_2" type="Marker2D" parent="Gun_Player"]
+position = Vector2(-28, -4)
+
+[node name="Gun_3" type="Marker2D" parent="Gun_Player"]
+position = Vector2(28, -4)
+
+[node name="FireingDlayTime" type="Timer" parent="."]
+one_shot = true

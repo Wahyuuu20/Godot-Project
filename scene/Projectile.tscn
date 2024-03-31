@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://dgldk6j1j1eux"]
+
+[ext_resource type="Script" path="res://Scirpt/Projectile.gd" id="1_5l7jh"]
+[ext_resource type="Texture2D" uid="uid://d5bi3iv86euy" path="res://Asset/laserRed12.png" id="2_44t3r"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i88ua"]
+radius = 3.0
+height = 58.0
+
+[node name="Projectile" type="Area2D"]
+script = ExtResource("1_5l7jh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.87451, 0, 0, 1)
+scale = Vector2(0.115385, 0.390351)
+texture = ExtResource("2_44t3r")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+visible = false
+position = Vector2(-2.98023e-08, 3.72268e-07)
+scale = Vector2(0.1, 1.17105)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-1.77636e-15, 0)
+scale = Vector2(0.25, 0.390351)
+shape = SubResource("CapsuleShape2D_i88ua")
+
+[connection signal="area_entered" from="." to="." method="KenaHIt"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

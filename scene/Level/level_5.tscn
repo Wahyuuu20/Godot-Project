@@ -1,0 +1,76 @@
+[gd_scene load_steps=5 format=3 uid="uid://c4vhhfldo6o02"]
+
+[ext_resource type="PackedScene" uid="uid://ccs8lrewsoxfe" path="res://scene/Global_level_Background.tscn" id="1_826xm"]
+[ext_resource type="Script" path="res://scene/Level/level_5.gd" id="1_l68pi"]
+[ext_resource type="PackedScene" uid="uid://dt0py212vaenk" path="res://scene/player.tscn" id="2_5llwc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q0isw"]
+size = Vector2(48, 48)
+
+[node name="level_5" type="Node2D"]
+script = ExtResource("1_l68pi")
+
+[node name="Global_background" parent="." instance=ExtResource("1_826xm")]
+
+[node name="Spawn_Enemy" type="Node2D" parent="."]
+position = Vector2(544, 160)
+
+[node name="Marker2D" type="Marker2D" parent="Spawn_Enemy"]
+
+[node name="Marker2D2" type="Marker2D" parent="Spawn_Enemy"]
+position = Vector2(-64, 0)
+
+[node name="Marker2D3" type="Marker2D" parent="Spawn_Enemy"]
+position = Vector2(64, 0)
+
+[node name="Marker2D4" type="Marker2D" parent="Spawn_Enemy"]
+position = Vector2(0, 64)
+
+[node name="Marker2D5" type="Marker2D" parent="Spawn_Enemy"]
+position = Vector2(0, -64)
+
+[node name="Marker2D6" type="Marker2D" parent="Spawn_Enemy"]
+position = Vector2(-128, 0)
+
+[node name="Marker2D7" type="Marker2D" parent="Spawn_Enemy"]
+position = Vector2(128, 0)
+
+[node name="Marker2D8" type="Marker2D" parent="Spawn_Enemy"]
+position = Vector2(128, 64)
+
+[node name="Marker2D9" type="Marker2D" parent="Spawn_Enemy"]
+position = Vector2(64, 64)
+
+[node name="Marker2D10" type="Marker2D" parent="Spawn_Enemy"]
+position = Vector2(64, -64)
+
+[node name="Marker2D11" type="Marker2D" parent="Spawn_Enemy"]
+position = Vector2(128, -64)
+
+[node name="Marker2D12" type="Marker2D" parent="Spawn_Enemy"]
+position = Vector2(-64, -64)
+
+[node name="Marker2D13" type="Marker2D" parent="Spawn_Enemy"]
+position = Vector2(-128, -64)
+
+[node name="Marker2D14" type="Marker2D" parent="Spawn_Enemy"]
+position = Vector2(-128, 64)
+
+[node name="Marker2D15" type="Marker2D" parent="Spawn_Enemy"]
+position = Vector2(-64, 64)
+
+[node name="Marker2D16" type="Marker2D" parent="Spawn_Enemy"]
+position = Vector2(-200, 0)
+
+[node name="Marker2D17" type="Marker2D" parent="Spawn_Enemy"]
+position = Vector2(192, 0)
+
+[node name="Player" parent="." instance=ExtResource("2_5llwc")]
+position = Vector2(544, 544)
+
+[node name="Next_Area" type="Area2D" parent="."]
+position = Vector2(-8, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Next_Area"]
+position = Vector2(1132, 544)
+shape = SubResource("RectangleShape2D_q0isw")

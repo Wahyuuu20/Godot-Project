@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://bu771wcmrein3"]
+
+[ext_resource type="Script" path="res://Scirpt/boss.gd" id="1_6darw"]
+[ext_resource type="Texture2D" uid="uid://bwi2f2f62bw45" path="res://Asset/enemyGreen5.png" id="2_w4p11"]
+[ext_resource type="Script" path="res://scene/Shield.gd" id="3_bq4pv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j4brn"]
+size = Vector2(1504, 33)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_77eiy"]
+size = Vector2(1504, 506)
+
+[node name="MidBos" type="Area2D" groups=["Boss"]]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_6darw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1, 1.52381)
+texture = ExtResource("2_w4p11")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(0, -48, -16, -48, -32, -64, -48, -64, -48, -48, -32, 32, -32, 48, -16, 48, -16, 64, 16, 64, 16, 48, 32, 48, 32, 32, 48, -64, 32, -64, 16, -48)
+
+[node name="Weapon" type="Node2D" parent="."]
+
+[node name="Shield" type="Area2D" parent="Weapon" groups=["Sheild"]]
+script = ExtResource("3_bq4pv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Weapon/Shield"]
+position = Vector2(0, 96)
+shape = SubResource("RectangleShape2D_j4brn")
+debug_color = Color(0, 0.627451, 0.490196, 0.419608)
+
+[node name="Detection_area" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detection_area"]
+position = Vector2(0, 243)
+shape = SubResource("RectangleShape2D_77eiy")
+debug_color = Color(0.686275, 0.501961, 0, 0.419608)
+
+[connection signal="body_entered" from="Detection_area" to="." method="PlayerEnter"]
+[connection signal="body_exited" from="Detection_area" to="." method="Player_exited"]

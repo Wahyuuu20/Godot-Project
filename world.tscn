@@ -1,0 +1,73 @@
+[gd_scene load_steps=5 format=3 uid="uid://ctb202bpsbgg1"]
+
+[ext_resource type="PackedScene" uid="uid://dt0py212vaenk" path="res://scene/player.tscn" id="1_7g4aj"]
+[ext_resource type="PackedScene" uid="uid://bq5djiw3kyh0o" path="res://scene/meteor.tscn" id="1_mpgm1"]
+[ext_resource type="PackedScene" uid="uid://jbsuoflei4hd" path="res://scene/enemy.tscn" id="1_v038s"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_y5c7m"]
+
+[node name="World" type="Node"]
+
+[node name="Level_world_background" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Level_world_background"]
+modulate = Color(0.51, 0.6325, 1, 1)
+position = Vector2(576.25, 324.25)
+scale = Vector2(1153.5, 649.5)
+texture = SubResource("CanvasTexture_y5c7m")
+
+[node name="Enemy_node" type="Node2D" parent="."]
+position = Vector2(589, 91)
+
+[node name="Enemy" parent="Enemy_node" instance=ExtResource("1_v038s")]
+
+[node name="Enemy2" parent="Enemy_node" instance=ExtResource("1_v038s")]
+position = Vector2(68, 1)
+
+[node name="Enemy3" parent="Enemy_node" instance=ExtResource("1_v038s")]
+position = Vector2(-140, 1)
+
+[node name="Enemy4" parent="Enemy_node" instance=ExtResource("1_v038s")]
+position = Vector2(132, 1)
+
+[node name="Enemy10" parent="Enemy_node" instance=ExtResource("1_v038s")]
+position = Vector2(131, 58)
+
+[node name="Enemy11" parent="Enemy_node" instance=ExtResource("1_v038s")]
+position = Vector2(68, 63)
+
+[node name="Enemy12" parent="Enemy_node" instance=ExtResource("1_v038s")]
+position = Vector2(64, 127)
+
+[node name="Enemy13" parent="Enemy_node" instance=ExtResource("1_v038s")]
+position = Vector2(-35, 132)
+
+[node name="Enemy5" parent="Enemy_node" instance=ExtResource("1_v038s")]
+position = Vector2(-200, 5)
+
+[node name="Enemy7" parent="Enemy_node" instance=ExtResource("1_v038s")]
+position = Vector2(-143, 137)
+
+[node name="Enemy8" parent="Enemy_node" instance=ExtResource("1_v038s")]
+position = Vector2(-141, 81)
+
+[node name="Enemy9" parent="Enemy_node" instance=ExtResource("1_v038s")]
+position = Vector2(-206, 83)
+
+[node name="Enemy6" parent="Enemy_node" instance=ExtResource("1_v038s")]
+position = Vector2(-76, 1)
+
+[node name="Meteor_Object" type="Node2D" parent="."]
+position = Vector2(7, -47)
+
+[node name="Meteor" parent="Meteor_Object" instance=ExtResource("1_mpgm1")]
+position = Vector2(160, 432)
+
+[node name="Meteor3" parent="Meteor_Object" instance=ExtResource("1_mpgm1")]
+position = Vector2(577, 431)
+
+[node name="Meteor2" parent="Meteor_Object" instance=ExtResource("1_mpgm1")]
+position = Vector2(992, 432)
+
+[node name="Player" parent="." instance=ExtResource("1_7g4aj")]
+position = Vector2(576, 544)

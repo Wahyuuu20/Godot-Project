@@ -1,0 +1,92 @@
+[gd_scene load_steps=7 format=3 uid="uid://c05grylvubvd8"]
+
+[ext_resource type="Script" path="res://scene/Level/level_2.gd" id="1_nr3ck"]
+[ext_resource type="PackedScene" uid="uid://dt0py212vaenk" path="res://scene/player.tscn" id="2_ajcyg"]
+[ext_resource type="PackedScene" uid="uid://ccs8lrewsoxfe" path="res://scene/Global_level_Background.tscn" id="2_kbd0y"]
+[ext_resource type="PackedScene" uid="uid://bq5djiw3kyh0o" path="res://scene/meteor.tscn" id="3_n8vg2"]
+[ext_resource type="PackedScene" uid="uid://dxtqobo14ig0d" path="res://scene/Level/UI/uiLevel2.tscn" id="4_r2x64"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gw2p0"]
+size = Vector2(48, 48)
+
+[node name="level_2" type="Node2D"]
+script = ExtResource("1_nr3ck")
+
+[node name="Global_background" parent="." instance=ExtResource("2_kbd0y")]
+
+[node name="Spawn_Enemy" type="Node2D" parent="."]
+position = Vector2(544, 168)
+
+[node name="Marker2D" type="Marker2D" parent="Spawn_Enemy"]
+
+[node name="Marker2D3" type="Marker2D" parent="Spawn_Enemy"]
+position = Vector2(-118, -70)
+
+[node name="Marker2D4" type="Marker2D" parent="Spawn_Enemy"]
+position = Vector2(0, 120)
+
+[node name="Marker2D5" type="Marker2D" parent="Spawn_Enemy"]
+position = Vector2(0, -64)
+
+[node name="Marker2D6" type="Marker2D" parent="Spawn_Enemy"]
+position = Vector2(-318, -6)
+
+[node name="Marker2D7" type="Marker2D" parent="Spawn_Enemy"]
+position = Vector2(386, -6)
+
+[node name="Marker2D8" type="Marker2D" parent="Spawn_Enemy"]
+position = Vector2(386, 58)
+
+[node name="Marker2D9" type="Marker2D" parent="Spawn_Enemy"]
+position = Vector2(130, -70)
+
+[node name="Marker2D10" type="Marker2D" parent="Spawn_Enemy"]
+position = Vector2(194, -70)
+
+[node name="Marker2D11" type="Marker2D" parent="Spawn_Enemy"]
+position = Vector2(258, -70)
+
+[node name="Marker2D12" type="Marker2D" parent="Spawn_Enemy"]
+position = Vector2(-182, -70)
+
+[node name="Marker2D13" type="Marker2D" parent="Spawn_Enemy"]
+position = Vector2(-246, -70)
+
+[node name="Marker2D14" type="Marker2D" parent="Spawn_Enemy"]
+position = Vector2(-318, 58)
+
+[node name="Marker2D16" type="Marker2D" parent="Spawn_Enemy"]
+position = Vector2(-390, -6)
+
+[node name="Marker2D17" type="Marker2D" parent="Spawn_Enemy"]
+position = Vector2(450, -6)
+
+[node name="Meteor_obj" type="Node2D" parent="."]
+position = Vector2(320, 432)
+scale = Vector2(7.88, 5.5)
+
+[node name="Meteor" parent="Meteor_obj" instance=ExtResource("3_n8vg2")]
+position = Vector2(-12.1827, 0)
+scale = Vector2(2.48344, 0.778556)
+
+[node name="Meteor5" parent="Meteor_obj" instance=ExtResource("3_n8vg2")]
+position = Vector2(30.4569, 0)
+scale = Vector2(2.48344, 0.778556)
+
+[node name="Meteor6" parent="Meteor_obj" instance=ExtResource("3_n8vg2")]
+position = Vector2(77.1574, 0)
+scale = Vector2(2.48344, 0.778556)
+
+[node name="Player" parent="." instance=ExtResource("2_ajcyg")]
+position = Vector2(544, 544)
+
+[node name="Control" parent="." instance=ExtResource("4_r2x64")]
+offset_top = 8.0
+offset_bottom = 8.0
+
+[node name="Next_Area" type="Area2D" parent="."]
+position = Vector2(-8, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Next_Area"]
+position = Vector2(1132, 544)
+shape = SubResource("RectangleShape2D_gw2p0")

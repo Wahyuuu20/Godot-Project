@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://d2lsq7d7sh56q"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_oh3cl"]
+font_color = Color(0.541176, 0.94902, 0.00392157, 1)
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_right = 72.0
+offset_bottom = 24.0
+
+[node name="Level" type="Label" parent="Panel"]
+layout_mode = 0
+offset_right = 62.0
+offset_bottom = 26.0
+text = "Level : 1"
+label_settings = SubResource("LabelSettings_oh3cl")
+horizontal_alignment = 1
+vertical_alignment = 1

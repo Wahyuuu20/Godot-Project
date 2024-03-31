@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://lmu52vmiuut7"]
+
+[ext_resource type="Script" path="res://Tower.gd" id="1_8phhh"]
+[ext_resource type="Texture2D" uid="uid://wvm1502npsmv" path="res://icon.svg" id="2_dgm33"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iv6t7"]
+size = Vector2(128, 128)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_137n4"]
+radius = 320.899
+
+[node name="Tower" type="Area2D"]
+script = ExtResource("1_8phhh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_dgm33")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_iv6t7")
+
+[node name="Cast" type="Node2D" parent="."]
+
+[node name="RayCast2D" type="RayCast2D" parent="Cast"]
+target_position = Vector2(0, 200)
+collision_mask = 3
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Detect" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detect"]
+shape = SubResource("CircleShape2D_137n4")
+
+[connection signal="body_entered" from="Detect" to="." method="_on_detect_body_entered"]

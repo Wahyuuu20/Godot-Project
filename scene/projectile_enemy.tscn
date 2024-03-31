@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://b12kb3o3t21bs"]
+
+[ext_resource type="Script" path="res://Scirpt/ProjectileEnemy.gd" id="1_x86nq"]
+[ext_resource type="Texture2D" uid="uid://etgvjtdpmdg8" path="res://Asset/laserBlue12.png" id="2_au7js"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x2558"]
+radius = 1.0
+height = 22.0
+
+[node name="ProjectileEnemy" type="Area2D"]
+script = ExtResource("1_x86nq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.129412, 0.647059, 0.690196, 1)
+scale = Vector2(0.115, 0.39)
+texture = ExtResource("2_au7js")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CapsuleShape2D_x2558")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+visible = false
+position = Vector2(0, 1.37091e-06)
+scale = Vector2(0.1, 1.2)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
